@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para ti ✨</title>
+
+<style>
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family: 'Arial', sans-serif;
+}
+
+body{
+ height:100vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ background: radial-gradient(circle at top, #1a0033, #000010);
+ overflow:hidden;
+}
+
+/* estrellas */
+.stars, .stars2, .stars3{
+ position:absolute;
+ width:100%;
+ height:100%;
+ background:transparent;
+}
+
+.stars::after,
+.stars2::after,
+.stars3::after{
+ content:"";
+ position:absolute;
+ width:200%;
+ height:200%;
+ background:transparent;
+ box-shadow:
+ 50px 100px white,
+ 120px 300px white,
+ 200px 80px white,
+ 400px 500px white,
+ 600px 200px white,
+ 800px 400px white,
+ 1000px 100px white;
+ animation: move 60s linear infinite;
+}
+
+@keyframes move{
+ from{transform:translateY(0);}
+ to{transform:translateY(-1000px);}
+}
+
+/* regalo */
+.box{
+ width:300px;
+ height:300px;
+ background:#ff4da6;
+ border-radius:20px;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-direction:column;
+ box-shadow:0 0 30px #ff4da6;
+ position:relative;
+ transition:1s;
+}
+
+/* checkbox oculto */
+#open{
+ display:none;
+}
+
+.label{
+ padding:10px 20px;
+ background:white;
+ color:#ff1493;
+ font-weight:bold;
+ border-radius:20px;
+ cursor:pointer;
+ margin-top:20px;
+ transition:0.3s;
+}
+
+.label:hover{
+ transform:scale(1.1);
+}
+
+/* cuando se abre */
+#open:checked ~ .box{
+ transform:scale(1.2) rotate(2deg);
+ background:#2b003d;
+}
+
+/* mensaje oculto */
+.message{
+ display:none;
+ color:white;
+ text-align:center;
+ padding:20px;
+}
+
+#open:checked ~ .box .message{
+ display:block;
+ animation: fade 2s ease-in;
+}
+
+@keyframes fade{
+ from{opacity:0;}
+ to{opacity:1;}
+}
+
+/* flor */
+.rose{
+ font-size:50px;
+ animation: float 2s infinite alternate;
+}
+
+@keyframes float{
+ from{transform:translateY(0);}
+ to{transform:translateY(-10px);}
+}
+
+.text{
+ margin-top:10px;
+ font-size:18px;
+ line-height:1.5;
+}
+
+.final{
+ margin-top:15px;
+ font-size:20px;
+ color:#ff4da6;
+ font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
+
+<input type="checkbox" id="open">
+
+<label class="box" for="open">
+
+ <div class="message">
+    <div class="rose">🌹</div>
+    <div class="text">
+        En algún rincón del universo,<br>
+        las estrellas se alinearon para que te encontrara.<br><br>
+
+        No es casualidad… es destino ✨<br><br>
+
+        Y hoy quiero decirte algo importante:
+    </div>
+
+    <div class="final">
+        ¿Quieres ser mi enamorada? 💖
+    </div>
+ </div>
+
+ <div class="label">TOCA PARA ABRIR EL REGALO 🎁</div>
+
+</label>
+
+</body>
+</html>
