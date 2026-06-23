@@ -2,50 +2,42 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Para ti ✨</title>
+<title>Para ti 💖</title>
 
 <style>
-*{
- margin:0;
- padding:0;
- box-sizing:border-box;
- font-family: 'Arial', sans-serif;
-}
-
 body{
+ margin:0;
  height:100vh;
  display:flex;
  justify-content:center;
  align-items:center;
- background: radial-gradient(circle at top, #1a0033, #000010);
+ background: radial-gradient(circle, #1a0025, #000);
+ font-family: Arial, sans-serif;
  overflow:hidden;
 }
 
-/* estrellas */
-.stars, .stars2, .stars3{
+/* fondo estrellas */
+.stars {
  position:absolute;
  width:100%;
  height:100%;
- background:transparent;
+ background: transparent;
 }
 
-.stars::after,
-.stars2::after,
-.stars3::after{
+.stars::after{
  content:"";
  position:absolute;
  width:200%;
  height:200%;
- background:transparent;
  box-shadow:
- 50px 100px white,
- 120px 300px white,
- 200px 80px white,
- 400px 500px white,
- 600px 200px white,
- 800px 400px white,
- 1000px 100px white;
- animation: move 60s linear infinite;
+ 20px 30px white,
+ 100px 200px white,
+ 300px 100px white,
+ 500px 400px white,
+ 700px 250px white,
+ 900px 100px white,
+ 1100px 300px white;
+ animation: move 50s linear infinite;
 }
 
 @keyframes move{
@@ -53,87 +45,59 @@ body{
  to{transform:translateY(-1000px);}
 }
 
-/* regalo */
-.box{
- width:300px;
- height:300px;
+/* carta */
+.card{
  background:#ff4da6;
+ width:320px;
+ padding:30px;
  border-radius:20px;
- display:flex;
- justify-content:center;
- align-items:center;
- flex-direction:column;
- box-shadow:0 0 30px #ff4da6;
- position:relative;
- transition:1s;
-}
-
-/* checkbox oculto */
-#open{
- display:none;
-}
-
-.label{
- padding:10px 20px;
- background:white;
- color:#ff1493;
- font-weight:bold;
- border-radius:20px;
- cursor:pointer;
- margin-top:20px;
- transition:0.3s;
-}
-
-.label:hover{
- transform:scale(1.1);
-}
-
-/* cuando se abre */
-#open:checked ~ .box{
- transform:scale(1.2) rotate(2deg);
- background:#2b003d;
-}
-
-/* mensaje oculto */
-.message{
- display:none;
- color:white;
  text-align:center;
- padding:20px;
+ box-shadow:0 0 30px #ff4da6;
+ transition:0.5s;
+ z-index:1;
 }
 
-#open:checked ~ .box .message{
- display:block;
- animation: fade 2s ease-in;
+.card:hover{
+ transform:scale(1.05);
 }
 
-@keyframes fade{
- from{opacity:0;}
- to{opacity:1;}
-}
-
-/* flor */
-.rose{
+/* corazón */
+.heart{
  font-size:50px;
- animation: float 2s infinite alternate;
+ animation: beat 1s infinite;
 }
 
-@keyframes float{
- from{transform:translateY(0);}
- to{transform:translateY(-10px);}
+@keyframes beat{
+ 0%{transform:scale(1);}
+ 50%{transform:scale(1.3);}
+ 100%{transform:scale(1);}
 }
 
-.text{
- margin-top:10px;
- font-size:18px;
+h1{
+ color:white;
+ font-size:22px;
+}
+
+p{
+ color:white;
+ font-size:16px;
  line-height:1.5;
 }
 
-.final{
+button{
  margin-top:15px;
- font-size:20px;
- color:#ff4da6;
+ padding:10px 20px;
+ border:none;
+ border-radius:20px;
+ background:white;
+ color:#ff1493;
  font-weight:bold;
+ cursor:pointer;
+ transition:0.3s;
+}
+
+button:hover{
+ transform:scale(1.1);
 }
 </style>
 </head>
@@ -141,32 +105,29 @@ body{
 <body>
 
 <div class="stars"></div>
-<div class="stars2"></div>
-<div class="stars3"></div>
 
-<input type="checkbox" id="open">
+<div class="card">
+ <div class="heart">❤️</div>
 
-<label class="box" for="open">
+ <h1>Hola tú ✨</h1>
 
- <div class="message">
-    <div class="rose">🌹</div>
-    <div class="text">
-        En algún rincón del universo,<br>
-        las estrellas se alinearon para que te encontrara.<br><br>
+ <p>
+ Desde que llegaste, todo se siente diferente.<br>
+ Más bonito, más especial… más tú 💖<br><br>
 
-        No es casualidad… es destino ✨<br><br>
+ No sé cómo explicarlo, pero me haces feliz.
+ </p>
 
-        Y hoy quiero decirte algo importante:
-    </div>
+ <p style="font-weight:bold;">
+ Y hoy quiero preguntarte algo importante...
+ </p>
 
-    <div class="final">
-        ¿Quieres ser mi enamorada? 💖
-    </div>
- </div>
+ <h1>¿Quieres ser mi enamorada? 💌</h1>
 
- <div class="label">TOCA PARA ABRIR EL REGALO 🎁</div>
-
-</label>
+ <button onclick="alert('Me hiciste muy feliz 💖')">
+ Responder 💖
+ </button>
+</div>
 
 </body>
 </html>
